@@ -30,10 +30,29 @@ public class CustomListTest {
 
         list.addCity(estevan);
 
-        // should find an existing city
         org.junit.Assert.assertTrue(list.hasCity(new City("Estevan", "SK")));
 
-        // should not find a city we never added
         org.junit.Assert.assertFalse(list.hasCity(redDeer));
     }
+    @org.junit.Test
+    public void deleteCityTest() {
+        list = MockCityList();
+        City estevan = new City("Estevan", "SK");
+        City toronto = new City("Toronto", "ON");
+        list.addCity(estevan);
+        list.addCity(toronto);
+
+        int before = list.getCount();
+        list.deleteCity(new City("Estevan", "SK"));
+        org.junit.Assert.assertFalse(list.hasCity(estevan));
+        org.junit.Assert.assertEquals(before - 1, list.getCount());
+    }
+
+    @org.junit.Test(expected = IllegalArgumentException.class)
+    public void deleteCityThrowsWhenMissing() {
+        list = MockCityList();
+        // never added "Red Deer"
+        list.deleteCity(new City("Red Deer", "AB"));
+    }
+
 }
