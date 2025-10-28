@@ -76,4 +76,9 @@ public class CustomList extends ArrayAdapter<City> {
         throw new IllegalArgumentException("city not found");
     }
 
+    public int countCities() {
+        return cities.size();
+    }
+
+
 }
