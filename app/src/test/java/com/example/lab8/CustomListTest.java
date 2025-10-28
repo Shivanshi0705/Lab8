@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class CustomListTest {
 
     private CustomList list;
+
     public CustomList MockCityList() {
-        // Match your CustomList constructor used in the lab
         list = new CustomList(null, new ArrayList<City>());
         return list;
     }
