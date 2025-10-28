@@ -4,7 +4,7 @@ import java.util.List;
 
 public class CustomList {
 
-    private List<City> cities;
+    private final List<City> cities;
 
     public CustomList(Object context, List<City> cities) {
         this.cities = cities;
@@ -15,5 +15,6 @@ public class CustomList {
     }
 
     public void addCity(City city) {
+        cities.add(city);
     }
 }
