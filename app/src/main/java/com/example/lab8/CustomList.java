@@ -53,5 +53,16 @@ public class CustomList extends ArrayAdapter<City> {
         cities.add(city);
 
     }
+    public boolean hasCity(City city) {
+        if (city == null) return false;
+        for (City c : cities) {
+            if (c.getCityName().equals(city.getCityName())
+                    && c.getProvinceName().equals(city.getProvinceName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }
