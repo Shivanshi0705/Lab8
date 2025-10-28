@@ -1,22 +1,24 @@
 package com.example.lab8;
 
-import java.util.List;
+import static org.junit.Assert.assertEquals;
 
-public class CustomList {
+import org.junit.Test;
+import java.util.ArrayList;
 
-    private final List<City> cities;
+public class CustomListTest {
 
-    public CustomList(Object context, List<City> cities) {
-        this.cities = cities;
+    private CustomList list;
+
+    public CustomList MockCityList() {
+        list = new CustomList(null, new ArrayList<City>());
+        return list;
     }
 
-    /** this gets size of the list */
-    public int getCount() {
-        return cities.size();
-    }
-
-    /** this adds a city object to the list */
-    public void addCity(City city) {
-        cities.add(city);
+    @Test
+    public void addCityTest() {
+        list = MockCityList();
+        int listSize = list.getCount();
+        list.addCity(new City("Estevan", "SK"));
+        assertEquals(list.getCount(), listSize + 1);
     }
 }
