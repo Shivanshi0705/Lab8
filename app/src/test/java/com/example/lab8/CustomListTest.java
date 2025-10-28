@@ -54,5 +54,17 @@ public class CustomListTest {
         // never added "Red Deer"
         list.deleteCity(new City("Red Deer", "AB"));
     }
+    @org.junit.Test
+
+    public void countCitiesTest() {
+        list = MockCityList();
+        org.junit.Assert.assertEquals(0, list.countCities());
+
+        list.addCity(new City("Estevan", "SK"));
+        org.junit.Assert.assertEquals(1, list.countCities());
+
+        list.addCity(new City("Toronto", "ON"));
+        org.junit.Assert.assertEquals(2, list.countCities());
+    }
 
 }
